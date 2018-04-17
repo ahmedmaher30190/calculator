@@ -114,53 +114,6 @@
       <span id="" class="input" onclick="myFunction('.')">.</span>
       <span id="" class="input" onclick="ecual()">=</span>
     </div>
-    <script type="text/javascript">
 
-      function myFunction(a) {
-        var x = a;
-        document.getElementById("insert").innerHTML += x;
-      }
-      function myclear(){
-        document.getElementById("insert").innerHTML ="";
-        document.getElementById("result").innerHTML = 0;
-      }
-
-      function ecual(){
-        var res = document.getElementById("insert").textContent;
-        /* Get Frist Number */
-          var a = res.split(/[\-, \* ,\+ ,\÷]+/)[0];
-        /* Get Last Number */
-          var b = res.split(/[\-, \* ,\+ ,\÷]+/)[1];
-
-        var d , c ;
-        d = a.length;
-        c = b.length;
-        var all = res.substr(d, 1);
-        if(all == '+'){
-          var frist = parseInt(a);
-          var last  = parseInt(b);
-          document.getElementById("result").innerHTML = frist + last;
-          document.getElementById("insert").innerHTML = "";
-        }else if(all == '-'){
-          var frist = parseInt(a);
-          var last  = parseInt(b);
-          document.getElementById("result").innerHTML = frist - last;
-          document.getElementById("insert").innerHTML = "";
-        }else if(all == '÷'){
-          var frist = parseInt(a);
-          var last  = parseInt(b);
-          document.getElementById("result").innerHTML = frist / last;
-          document.getElementById("insert").innerHTML = "";
-        }else if(all == '*'){
-          var frist = parseInt(a);
-          var last  = parseInt(b);
-          document.getElementById("result").innerHTML = frist * last;
-          document.getElementById("insert").innerHTML = "";
-        }else{
-
-        }
-
-      }
-    </script>
   </body>
 </html>
