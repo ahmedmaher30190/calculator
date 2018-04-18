@@ -2,120 +2,181 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>calculator</title>
     <style>
-    @import url('https://fonts.googleapis.com/css?family=Dosis');
-    body{
-      background:#f1f1f1;
-      font-family: 'Dosis', sans-serif;
+    /* latin-ext */
+    @font-face {
+      font-family: 'Dosis';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Dosis Regular'), local('Dosis-Regular'), url(fonts/HhyaU5sn9vOmLzlmC_W6EQ.woff2) format('woff2');
+      unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
     }
-    *{
-      box-sizing: border-box;
-      margin: 0px;
-      padding: 0;
-      transition: all 0.7s;
+    /* latin */
+    @font-face {
+      font-family: 'Dosis';
+      font-style: normal;
+      font-weight: 400;
+      src: local('Dosis Regular'), local('Dosis-Regular'), url(fonts/HhyaU5sn9vOmLzloC_U.woff2) format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
-    #cal{
-      background: #433a69;
-      width:300px;
-      height: 500px;
-      display: block;
-      margin:50px auto;
-      overflow: hidden;
-    }
-    .insert{
-      display: block;
-      width: 100%;
-      height: 50px;
-      border-bottom:1px solid #352d58;
-      color: rgba(250,250,250,0.7);
-      font-size: 20px;
-      padding: 10px;
-      letter-spacing: 2px;
-      overflow: hidden;
-    }
-    .result{
-      display: block;
-      width: 100%;
-      height: 100px;
-      text-align: right;
-      line-height: 70px;
-      border-bottom:1px solid #352d58;
-      color: rgba(250,250,250,1);
-      font-size: 70px;
-      padding: 10px;
-      letter-spacing: 2px;
-      overflow: hidden;
-    }
-    .input{
-      display: inline-block;
-      float: left;
-      position: relative;
-      border:0.2px solid rgba(53,45,85,0.5);
-      width: 75px;
-      height: 70px;
-      color: #f2f2f2;
-      font-size: 35px;
-      text-align: center;
-      line-height: 70px;
-      cursor: pointer;
-      background: rgba(250,250,250,0.03)
-    }
-    .input:nth-of-type(3){
-      background: rgba(200,100,130,0.7)
-    }
-    .input:nth-of-type(4),.input:nth-of-type(5){
-      background: rgba(200,100,130,0.2)
-    }
-    .input:nth-of-type(6),.input:nth-of-type(10),.input:nth-of-type(14),.input:nth-of-type(18){
-      background: rgba(250,250,250,0.15)
-    }
-    .input:hover{
-      background: rgba(250,250,250,0.08)
-    }
-    .input:nth-of-type(3):hover{
-      background: rgba(200,100,130,1)
-    }
-    .input:nth-of-type(19){
-      width:150px;
-      text-align: left;
-      text-indent: 30px;
-    }
-    .input:nth-of-type(21){
-    background: rgba(40,186,113,1);
-    }
-    .input:active{
-     background: rgba(200,100,130,1);
-      transition: all 0s !important;
-    }
+        body{
+          background:#f1f1f1;
+          font-family: 'Dosis', sans-serif;
+        }
+        *{
+          box-sizing: border-box;
+          margin: 0px;
+          padding: 0;
+          transition: all 0.7s;
+        }
+        #cal{
+          background: #433a69;
+          width:100%;
+          height: 100vh;
+          display: block;
+          margin:0px auto;
+          overflow: hidden;
+        }
+        .insert{
+          display: block;
+          width: 100%;
+          height: 50px;
+          border-bottom:1px solid #352d58;
+          color: rgba(250,250,250,0.7);
+          font-size: 20px;
+          padding: 10px;
+          letter-spacing: 2px;
+          overflow: hidden;
+        }
+        .result{
+          display: block;
+          width: 100%;
+          height: 100px;
+          text-align: right;
+          line-height: 70px;
+          background: rgba(250,250,250,0.05);
+          border-bottom:1px solid #352d58;
+          color: rgba(250,250,250,1);
+          font-size: 70px;
+          padding: 10px;
+          letter-spacing: 2px;
+          overflow: hidden;
+        }
+        .input{
+          display: inline-block;
+          float: left;
+          position: relative;
+          border:0.2px solid rgba(53,45,85,0.5);
+          width: 25%;
+          height: 70px;
+          color: #f2f2f2;
+          font-size: 35px;
+          text-align: center;
+          line-height: 70px;
+          cursor: pointer;
+          background: rgba(250,250,250,0.03)
+        }
+        .input:nth-of-type(3){
+          background: rgba(200,100,130,0.7)
+        }
+        .input:nth-of-type(4),.input:nth-of-type(5){
+          background: rgba(200,100,130,0.2)
+        }
+        .input:nth-of-type(6),.input:nth-of-type(10),.input:nth-of-type(14),.input:nth-of-type(18){
+          background: rgba(250,250,250,0.15)
+        }
+        .input:hover{
+          background: rgba(250,250,250,0.08)
+        }
+        .input:nth-of-type(3):hover{
+          background: rgba(200,100,130,1)
+        }
+        .input:nth-of-type(19){
+          width:50%;
+          text-align: left;
+          text-indent: 30px;
+        }
+        .input:nth-of-type(21){
+        background: rgba(40,186,113,1);
+        }
+        .input:active{
+         background: rgba(200,100,130,1);
+          transition: all 0s !important;
+        }
     </style>
   </head>
   <body>
     <div id="cal">
-      <span id="insert" class="insert">15257+5741</span>
-      <span id="result" class="result">3645125</span>
-      <span id="" class="input">C</span>
+      <span id="insert" class="insert"></span>
+      <span id="result" class="result">0</span>
+      <span id="" class="input" onclick="myclear()">C</span>
       <span id="" class="input"><sup>+</sup>/<sub>-</sub></span>
       <span id="" class="input">%</span>
-      <span id="" class="input">÷</span>
-      <span id="" class="input">7</span>
-      <span id="" class="input">8</span>
-      <span id="" class="input">9</span>
-      <span id="" class="input">X</span>
-      <span id="" class="input">4</span>
-      <span id="" class="input">5</span>
-      <span id="" class="input">6</span>
-      <span id="" class="input">-</span>
-      <span id="" class="input">1</span>
-      <span id="" class="input">2</span>
-      <span id="" class="input">3</span>
-      <span id="" class="input">+</span>
-      <span id="" class="input">0</span>
-      <span id="" class="input">.</span>
-      <span id="" class="input">=</span>
+      <span id="" class="input" onclick="myFunction('÷')">÷</span>
+      <span id="" class="input" onclick="myFunction('7')">7</span>
+      <span id="" class="input" onclick="myFunction('8')">8</span>
+      <span id="" class="input" onclick="myFunction('9')">9</span>
+      <span id="" class="input" onclick="myFunction('*')">X</span>
+      <span id="" class="input" onclick="myFunction('4')">4</span>
+      <span id="" class="input" onclick="myFunction('5')">5</span>
+      <span id="" class="input" onclick="myFunction('6')">6</span>
+      <span id="" class="input" onclick="myFunction('-')">-</span>
+      <span id="" class="input" onclick="myFunction('1')">1</span>
+      <span id="" class="input" onclick="myFunction('2')">2</span>
+      <span id="" class="input" onclick="myFunction('3')">3</span>
+      <span id="" class="input" onclick="myFunction('+')">+</span>
+      <span id="" class="input" onclick="myFunction('0')">0</span>
+      <span id="" class="input" onclick="myFunction('.')">.</span>
+      <span id="" class="input" onclick="ecual()">=</span>
     </div>
-<script type="text/javascript">
+    <script type="text/javascript">
 
-</script>
+      function myFunction(a) {
+        var x = a;
+        document.getElementById("insert").innerHTML += x;
+      }
+      function myclear(){
+        document.getElementById("insert").innerHTML ="";
+        document.getElementById("result").innerHTML = 0;
+      }
+
+      function ecual(){
+        var res = document.getElementById("insert").textContent;
+        /* Get Frist Number */
+          var a = res.split(/[\-, \* ,\+ ,\÷]+/)[0];
+        /* Get Last Number */
+          var b = res.split(/[\-, \* ,\+ ,\÷]+/)[1];
+
+        var d , c ;
+        d = a.length;
+        c = b.length;
+        var all = res.substr(d, 1);
+        if(all == '+'){
+          var frist = parseInt(a);
+          var last  = parseInt(b);
+          document.getElementById("result").innerHTML = frist + last;
+          document.getElementById("insert").innerHTML = "";
+        }else if(all == '-'){
+          var frist = parseInt(a);
+          var last  = parseInt(b);
+          document.getElementById("result").innerHTML = frist - last;
+          document.getElementById("insert").innerHTML = "";
+        }else if(all == '÷'){
+          var frist = parseInt(a);
+          var last  = parseInt(b);
+          document.getElementById("result").innerHTML = frist / last;
+          document.getElementById("insert").innerHTML = "";
+        }else if(all == '*'){
+          var frist = parseInt(a);
+          var last  = parseInt(b);
+          document.getElementById("result").innerHTML = frist * last;
+          document.getElementById("insert").innerHTML = "";
+        }else{
+
+        }
+
+      }
+    </script>
   </body>
 </html>
